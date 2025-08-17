@@ -3,190 +3,802 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sujeeth - Public Speaker</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>D. Sujeeth - Stock Market Public Speaker</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            background: linear-gradient(to bottom right, #f0f4f8, #d9f1ff);
-            color: #333333;
-            font-family: 'Poppins', sans-serif;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            color: #0077b6;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .card {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
             background-color: #ffffff;
-            border: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
         }
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .rounded-lg {
-            border-radius: 1.5rem;
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            border-bottom: 3px solid #3498db;
         }
-        .btn {
-            background-color: #0077b6;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 1rem;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #005f8c;
-        }
-        img {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 1rem;
-        }
-        .image-wrapper {
+        
+        .header-content {
             display: flex;
-            justify-content: center;
             align-items: center;
-            overflow: hidden;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .image-wrapper img {
-            max-width: 100%;
-            height: auto;
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            border: 4px solid #3498db;
             object-fit: cover;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
         }
-        .contact-card {
-            background: #0077b6;
-            color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+        
+        .profile-info {
+            flex: 1;
         }
-        .contact-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        
+        .profile-info h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            letter-spacing: -1px;
         }
+        
+        .profile-info .subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.4;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        .contact-item svg {
-            margin-right: 1rem;
-        }
-        .contact-item a {
+            gap: 12px;
+            color: #2c3e50;
             text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
         }
-        .contact-item a:hover {
-            color: #c7e8f2;
+        
+        .contact-item:hover {
+            color: #3498db;
+        }
+        
+        .contact-item i {
+            width: 20px;
+            color: #3498db;
+        }
+        
+        .cta-button {
+            background: #3498db;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        /* Navigation */
+        .nav-sticky {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #34495e;
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            background: white;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .expertise-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
+            border-color: #3498db;
+        }
+        
+        .expertise-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 25px;
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .expertise-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        /* Speaking Gallery Section */
+        .gallery {
+            background: #f8f9fa;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-caption {
+            padding: 20px;
+        }
+        
+        .gallery-caption h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .gallery-caption p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: white;
+        }
+        
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .experience-item {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .experience-item h3 {
+            color: #3498db;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .experience-item p {
+            color: #34495e;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Achievements Section */
+        .achievements {
+            background: #f8f9fa;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .achievement-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
+            border-color: #3498db;
+        }
+        
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-text {
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .contact-card a {
+            color: #34495e;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: #3498db;
+        }
+        
+        .contact-description {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .profile-photo {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 25px;
+                justify-content: center;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                padding: 35px;
+                font-size: 1.1rem;
+            }
+            
+            .expertise-grid, .achievements-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item img {
+                height: 200px;
+            }
+            
+            .expertise-card, .experience-item {
+                padding: 30px 25px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="p-5">
-    <header class="text-center py-10">
-        <div class="flex justify-center mb-4">
-            <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/Sujeeth-professional-photo.png" alt="Sujeeth Profile" class="w-40 h-40 rounded-full shadow-lg object-cover">
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/Profile-fromal-photo" alt="D. Sujeeth" class="profile-photo">
+                <div class="profile-info">
+                    <h1>D. SUJEETH</h1>
+                    <p class="subtitle">Public Speaker • Financial Mentor</p>
+                    
+                    <div class="contact-info">
+                        <a href="tel:6382353560" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 6382353560</span>
+                        </a>
+                        <a href="mailto:sujeeth.m31@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>sujeeth.m31@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dsujeeth" class="contact-item" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/dsujeeth</span>
+                        </a>
+                    </div>
+                    
+                    <a href="mailto:sujeeth.m31@gmail.com?subject=Speaking Inquiry" class="cta-button">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
         </div>
-        <h1 class="text-5xl font-bold text-gray-800">Sujeeth D</h1>
-        <p class="text-2xl mt-2 text-gray-600">Stock Analyst | Options Trader | Financial Educator | Full-time Investor</p>
     </header>
 
-    <section class="container mx-auto my-16">
-        <h2 class="section-title">Gallery</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/IMG_0051.jpg" alt="Sujeeth">
-            </div>
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/IMG_0047.jpg" alt="Sujeeth">
-            </div>
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/20230518_121354.jpg" alt="Sujeeth">
-            </div>
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/20230518_121300.jpg" alt="Sujeeth">
-            </div>
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/20230518_114340.jpg" alt="Sujeeth">
-            </div>
-            <div class="image-wrapper">
-                <img src="https://sujeeth-expert-portfolio.s3.us-east-1.amazonaws.com/20230518_105626.jpg" alt="Sujeeth">
+    <!-- Navigation -->
+    <nav class="nav-sticky">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#gallery">Speaking Gallery</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About D. Sujeeth</h2>
+            <p class="section-subtitle">Transforming complex financial concepts into actionable insights for students and professionals</p>
+            <div class="about-content fade-in">
+                <p>A distinguished public speaker with 5 years of comprehensive stock market expertise spanning equity research, derivatives trading, and advanced stock analysis. I specialize in transforming complex financial concepts into accessible knowledge for students, professionals, and aspiring investors.</p>
+                <br>
+                <p>My passion lies in empowering the next generation of financial professionals through strategic mentorship, insightful lectures, and practical market guidance that bridges theoretical knowledge with real-world application.</p>
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto my-16">
-        <h2 class="section-title">About Me</h2>
-        <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">I am Sujeeth, a passionate stock analyst and options trader with years of experience in analyzing market trends and delivering high ROI strategies. My mission is to simplify the complexities of trading and empower others to achieve financial independence.</p>
-    </section>
-
-    <section class="container mx-auto my-16">
-        <h2 class="section-title">Skills</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-semibold text-gray-700">Technical Analysis</h3>
-                <p class="mt-2 text-gray-600">Expert in chart patterns, indicators, and trend analysis.</p>
-            </div>
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-semibold text-gray-700">Options Trading</h3>
-                <p class="mt-2 text-gray-600">Proficient in advanced strategies like Iron Condor, Straddles, and Spreads.</p>
-            </div>
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-semibold text-gray-700">Fundamental Analysis</h3>
-                <p class="mt-2 text-gray-600">In-depth analysis of financial statements and industry performance.</p>
-            </div>
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-xl font-semibold text-gray-700">Risk Management</h3>
-                <p class="mt-2 text-gray-600">Skilled in managing portfolio risks and maximizing returns.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto my-16">
-        <h2 class="section-title">Services Offered</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-            <div class="card p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-gray-700">Stock Market Seminars</h3>
-                <p class="mt-2 text-gray-600">Join my seminars where I discuss the fundamentals of stock market investing, trading strategies, and market analysis techniques to maximize your returns.</p>
-            </div>
-            <div class="card p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-gray-700">Mutual Fund Advice</h3>
-                <p class="mt-2 text-gray-600">Get personalized mutual fund investment advice, tailored to your financial goals, risk tolerance, and long-term objectives.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto my-16">
-        <h2 class="section-title">Contact Me</h2>
-        <p class="text-lg text-center max-w-2xl mx-auto">Interested in partnering or collaborating with me? Feel free to reach out for potential opportunities in trading strategies, market analysis, or business ventures.</p>
-        <div class="mt-8 flex justify-center">
-            <div class="contact-card">
-                <div class="contact-item">
-                    <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.5c0-1.38-.56-2.63-1.47-3.54a4.99 4.99 0 00-3.54-1.47c-.28 0-.55.04-.81.12-.31-.72-.91-1.29-1.61-1.61-.08-.26-.12-.53-.12-.81a4.99 4.99 0 00-1.47-3.54c-1.03-.91-2.46-1.47-3.86-1.47s-2.83.56-3.86 1.47c-.91 1.03-1.47 2.46-1.47 3.54 0 .28.04.55.12.81-.72.31-1.29.91-1.61 1.61-.08.26-.12.53-.12.81a4.99 4.99 0 00-1.47 3.54c-.91 1.03-1.47 2.46-1.47 3.54"></path>
-                    </svg>
-                    <a href="mailto:sujeeth.m31@gmail.com" class="ml-4">Email: <strong>sujeeth.m31@gmail.com</strong></a>
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2 class="section-title">Core Expertise</h2>
+            <p class="section-subtitle">Comprehensive knowledge across all aspects of financial markets and investment strategies</p>
+            <div class="expertise-grid">
+                <div class="expertise-card fade-in">
+                    <i class="fas fa-chart-line expertise-icon"></i>
+                    <h3>Equity Research & Valuation</h3>
+                    <p>Advanced fundamental analysis, financial modeling, and company valuation techniques to identify high-potential investment opportunities.</p>
                 </div>
-                <div class="contact-item">
-                    <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 7.69l-3.51-5.26a1 1 0 00-1.34-.35l-3.5 2.25a1 1 0 00-.32 1.26l1.56 2.4a3 3 0 01-.14 2.57l-1.84 2.73a1 1 0 00-.48.14l-3.52 2.35a1 1 0 00-1.08-.14l-1.83 1.23a3.04 3.04 0 01-3.74-.33l-1.63-2.1a3.03 3.03 0 01.74-3.99l5.26-3.51a1 1 0 00.35-1.34L7.69 22a1 1 0 00-1.34.35L5 17.91a1 1 0 00-.32-1.26l-2.25-3.5a1 1 0 00-1.34-.35l-5.26 3.51a1 1 0 00.35 1.34l3.5-2.25a1 1 0 00.32-1.26l1.56-2.4a3 3 0 01.14-2.57l2.73-1.84a1 1 0 00.48-.14l2.35-3.52a1 1 0 001.08.14l1.23-1.83a3.04 3.04 0 013.74.33l2.1 1.63a3.03 3.03 0 01-.74 3.99l-3.51 5.26a1 1 0 00-1.34-.35z"></path>
-                    </svg>
-                    <a href="tel:+916382353560" class="ml-4">Phone: <strong>+91 6382353560</strong></a>
+                <div class="expertise-card fade-in">
+                    <i class="fas fa-exchange-alt expertise-icon"></i>
+                    <h3>Derivatives & Trading Strategies</h3>
+                    <p>Sophisticated options and futures strategies, risk management protocols, and portfolio optimization techniques.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <i class="fas fa-search-dollar expertise-icon"></i>
+                    <h3>Technical & Fundamental Analysis</h3>
+                    <p>Integrated approach combining chart patterns, technical indicators, and macroeconomic analysis for market assessment.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <i class="fas fa-shield-alt expertise-icon"></i>
+                    <h3>Risk Management & Psychology</h3>
+                    <p>Behavioral finance principles, market psychology insights, and systematic risk management frameworks.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <i class="fas fa-chalkboard-teacher expertise-icon"></i>
+                    <h3>Financial Education & Mentorship</h3>
+                    <p>Proven expertise in curriculum development, engaging presentations, and mentoring in academic finance pursuits.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-8 text-gray-600">
-        <p>&copy; 2025 Sujeeth D. All Rights Reserved.</p>
+    <!-- Speaking Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Speaking Gallery</h2>
+            <p class="section-subtitle">Recent seminars and educational sessions showcasing practical financial knowledge</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/IMG-20221205-WA0042.jpg" alt="D. Sujeeth conducting financial seminar">
+                    <div class="gallery-caption">
+                        <h4>MBA Finance Workshop</h4>
+                        <p>Interactive session on stock valuation techniques and investment principles</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/IMG_0051.jpg" alt="D. Sujeeth delivering keynote presentation">
+                    <div class="gallery-caption">
+                        <h4>Investment Strategy Seminar</h4>
+                        <p>Keynote presentation on market analysis and portfolio management strategies</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/IMG_0047.jpg" alt="D. Sujeeth engaging with students">
+                    <div class="gallery-caption">
+                        <h4>Student Mentorship Session</h4>
+                        <p>Hands-on guidance in equity research methods and analytical frameworks</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/20230518_114340.jpg" alt="D. Sujeeth academic presentation">
+                    <div class="gallery-caption">
+                        <h4>Academic Conference</h4>
+                        <p>Presenting research findings on derivatives trading and risk management</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://sujeeth-stock-portfolio.s3.us-east-1.amazonaws.com/20230518_105626+(1).jpg" alt="D. Sujeeth financial education workshop">
+                    <div class="gallery-caption">
+                        <h4>Financial Literacy Program</h4>
+                        <p>Educational workshop on market fundamentals and investment basics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Proven track record in financial education and market analysis</p>
+            <div class="experience-grid">
+                <div class="experience-item fade-in">
+                    <h3>Chief Guest & Keynote Speaker</h3>
+                    <p>Delivered comprehensive presentations to MBA students on value investing strategies, stock selection methodologies, and market analysis techniques. Focused on practical applications of advanced valuation models and portfolio construction principles.</p>
+                </div>
+                <div class="experience-item fade-in">
+                    <h3>Academic Research Mentorship</h3>
+                    <p>Successfully guided MBA students through rigorous academic research processes, resulting in publications in prestigious finance journals. Provided expertise in research methodology and financial market analysis.</p>
+                </div>
+                <div class="experience-item fade-in">
+                    <h3>Financial Education & Training</h3>
+                    <p>Conducted specialized workshops and educational programs for aspiring investors and finance students. Developed comprehensive training modules covering market fundamentals and investment strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Professional Achievements</h2>
+            <p class="section-subtitle">Measurable impact in financial education and market expertise</p>
+            <div class="achievements-grid">
+                <div class="achievement-card fade-in">
+                    <div class="achievement-number">5+</div>
+                    <div class="achievement-text">Years Market Experience</div>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-number">400+</div>
+                    <div class="achievement-text">Students Mentored</div>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-number">5+</div>
+                    <div class="achievement-text">Speaking Engagements</div>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-number">2</div>
+                    <div class="achievement-text">Research Papers Published</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Ready to inspire your students with practical financial market expertise</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:6382353560">+91 6382353560</a>
+                    <p class="contact-description">Available for direct consultation</p>
+                </div>
+                <div class="contact-card fade-in">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:sujeeth.m31@gmail.com">sujeeth.m31@gmail.com</a>
+                    <p class="contact-description">Professional inquiries welcome</p>
+                </div>
+                <div class="contact-card fade-in">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/dsujeeth" target="_blank">linkedin.com/in/dsujeeth</a>
+                    <p class="contact-description">Professional networking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 D. Sujeeth • Empowering Financial Excellence Through Education • All Rights Reserved</p>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
